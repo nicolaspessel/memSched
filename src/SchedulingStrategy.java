@@ -1,5 +1,5 @@
 import java.util.Queue;
 
 public interface SchedulingStrategy {
-    public Process selectNext(Queue<Process> readyQueue);
+    public Kernel.ProcessControlBlock selectNext(Queue<Kernel.ProcessControlBlock> readyQueue);
 }
