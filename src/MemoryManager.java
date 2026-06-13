@@ -48,7 +48,8 @@ public class MemoryManager {
         diskSwap.add(swapProc);
     }
 
-    private void calculateRamUsage() {
-        currentRamUsage = activeProcesses.stream().mapToInt(Process::requiredMemory).sum();
+    public void removeProcess(Process process) {
+        activeProcesses.removeIf(p -> p == process);
+        currentRamUsage -= process.requiredMemory();
     }
 }
